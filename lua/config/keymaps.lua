@@ -58,4 +58,3 @@ keymap.set("n", "<leader>DD", "<cmd>bd!<CR>")
 keymap.set("n", "<leader>ee", "<cmd> lua vim.diagnostic.open_float() <CR>")
 
 vim.keymap.set("n", "gd", vim.lsp.buf.definition, { desc = "Go to definition" })
-
