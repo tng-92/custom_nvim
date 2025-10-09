@@ -33,3 +33,5 @@ opt.scrolloff = 8
 
 opt.cmdheight = 0
 opt.laststatus = 0
+
+opt.conceallevel = 1
