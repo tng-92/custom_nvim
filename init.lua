@@ -6,3 +6,6 @@ require("config.mason-verify")
 require("config.health-check")
 require("config.commands")
 require("core.lazy")
+
+-- Just setting the default color
+pcall(vim.cmd, "colorscheme material-palenight")
