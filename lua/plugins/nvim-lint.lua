@@ -52,9 +52,6 @@ return {
       javascriptreact = { "eslint_d" },
       typescriptreact = { "eslint_d" },
 
-      -- Lua
-      lua = { "luacheck" },
-
       -- Shell
       sh = { "shellcheck" },
       bash = { "shellcheck" },
