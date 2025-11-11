@@ -15,13 +15,13 @@ return {
         "html-lsp", -- HTML LSP
         "css-lsp", -- CSS LSP
         "vue-language-server", -- Vue LSP
+        "emmet-ls",
 
         -- Formatters (for conform.nvim and general use)
         "stylua",
         -- Note: gofmt comes with Go installation, not managed by Mason
         "prettier",
         "black",
-        "isort",
 
         -- Linters and diagnostics
         "eslint_d",
