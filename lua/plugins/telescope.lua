@@ -46,23 +46,37 @@ return {
     local builtin = require("telescope.builtin")
 
     -- your existing Telescope mappings
-    vim.keymap.set(
-      "n",
-      "<leader>sG",
-      builtin.find_files,
-      { noremap = true, silent = true, desc = "[S]earch Non [G]it files" }
-    )
     vim.keymap.set("n", "<leader>sf", builtin.git_files, { desc = "[S]earch [F]iles" })
     vim.keymap.set("n", "<leader>sg", builtin.live_grep, { desc = "[S]earch by [G]rep" })
     vim.keymap.set("n", "<leader>sw", builtin.grep_string, { desc = "[S]earch current [W]ord" })
     vim.keymap.set("n", "<leader>s.", builtin.oldfiles, { desc = '[S]earch Recent Files ("." for repeat)' })
     vim.keymap.set("n", "<leader><leader>", builtin.buffers, { desc = "[ ] Find existing buffers" })
+
     vim.keymap.set(
       "n",
       "<leader>/",
       builtin.current_buffer_fuzzy_find,
       { desc = "[/] Fuzzily search in current buffer" }
     )
+
+    vim.keymap.set(
+      "n",
+      "<leader>sF",
+      builtin.find_files,
+      { noremap = true, silent = true, desc = "[S]earch non git [F]iles" }
+    )
+
+    vim.keymap.set("n", "<leader>sl", function()
+      builtin.find_files({ cwd = "storage/logs" })
+    end, { noremap = true, silent = true, desc = "[S]earch [L]ogs in cwd" })
+
+    vim.keymap.set("n", "<leader>se", function()
+      builtin.live_grep({
+        additional_args = function()
+          return { "-g", "*.env" }
+        end,
+      })
+    end, { desc = "Search only in *.env files" })
 
     -- LSP-specific keymaps scoped to buffers when a server attaches
     vim.api.nvim_create_autocmd("LspAttach", {
