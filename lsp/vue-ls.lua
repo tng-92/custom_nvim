@@ -31,14 +31,17 @@ return {
             tsdk = get_typescript_sdk(),
         } or nil,
     },
+    flags = {
+        debounce_text_changes = 150, -- Reduce debounce for faster responses
+    },
     settings = {
         -- Remove TypeScript-specific settings to avoid conflicts with ts-ls
         -- Let the TypeScript Language Server handle TypeScript features
     },
-    -- capabilities = vim.tbl_deep_extend(
-    --     "force",
-    --     {},
-    --     vim.lsp.protocol.make_client_capabilities(),
-    --     blink.get_lsp_capabilities()
-    -- ),
+    capabilities = vim.tbl_deep_extend(
+        "force",
+        {},
+        vim.lsp.protocol.make_client_capabilities(),
+        blink.get_lsp_capabilities()
+    ),
 }

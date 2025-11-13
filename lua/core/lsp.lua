@@ -7,6 +7,7 @@ vim.lsp.enable({
     "html-ls",
     "css-ls",
     "vue-ls",
+    "emmet-ls",
 })
 
 

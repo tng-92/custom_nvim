@@ -20,6 +20,8 @@ keymap.set("x", "<leader>p", [["_dP]])
 
 keymap.set({ "n", "v" }, "<leader>y", [["+y]])
 keymap.set("n", "<leader>Y", [["+Y]])
+keymap.set("n", "<leader>ay", "ggVGy")
+keymap.set("n", "<leader>aY", "ggVG\"+y")
 
 keymap.set({ "n", "v" }, "<leader>d", [["_d]])
 
@@ -52,6 +54,7 @@ keymap.set("n", "<leader>5", "<cmd>w<CR>")
 
 -- Buffer remaps
 
+keymap.set("n", "<leader>br", "<cmd>e!<CR>")
 keymap.set("n", "<leader>dd", "<cmd>bd<CR>")
 keymap.set("n", "<leader>DD", "<cmd>bd!<CR>")
 

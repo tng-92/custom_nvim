@@ -19,10 +19,17 @@ return {
                 sources = {
                     default = { "lsp", "path", "snippets", "lazydev", "buffer" },
                     providers = {
+                        lsp = {
+                            timeout_ms = 500, -- Don't wait too long for LSP
+                        },
                         lazydev = {
                             name = "LazyDev",
                             module = "lazydev.integrations.blink",
                             score_offset = 100,
+                        },
+                        snippets = {
+                            min_keyword_length = 2,
+                            score_offset = 5, -- Prioritize snippets slightly
                         },
                         cmdline = {
                             min_keyword_length = 2,
@@ -40,6 +47,20 @@ return {
                     },
                 },
                 completion = {
+                    trigger = {
+                        show_on_insert_on_trigger_character = true,
+                    },
+                    list = {
+                        selection = {
+                            preselect = true,
+                            auto_insert = true,
+                        },
+                    },
+                    accept = {
+                        auto_brackets = {
+                            enabled = true,
+                        },
+                    },
                     menu = {
                         border = nil,
                         scrolloff = 1,
@@ -60,12 +81,19 @@ return {
                             winhighlight = 'Normal:BlinkCmpDoc,FloatBorder:BlinkCmpDocBorder,EndOfBuffer:BlinkCmpDoc',
                         },
                         auto_show = true,
-                        auto_show_delay_ms = 500,
+                        auto_show_delay_ms = 200,
                     },
                 },
             })
 
             require("luasnip.loaders.from_vscode").lazy_load()
+
+            -- Load HTML snippets for Vue, React, and Blade files
+            local luasnip = require("luasnip")
+            luasnip.filetype_extend("vue", { "html", "javascript", "css" })
+            luasnip.filetype_extend("javascriptreact", { "html", "javascript" })
+            luasnip.filetype_extend("typescriptreact", { "html", "typescript" })
+            luasnip.filetype_extend("blade", { "html", "php" })
         end,
     },
 }
