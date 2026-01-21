@@ -61,9 +61,9 @@ return {
 
     vim.keymap.set(
       "n",
-      "<leader>sF",
+      "<leader>ss",
       builtin.find_files,
-      { noremap = true, silent = true, desc = "[S]earch non git [F]iles" }
+      { noremap = true, silent = true, desc = "[S]earch non git un[S]taged" }
     )
 
     vim.keymap.set("n", "<leader>sl", function()
